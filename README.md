@@ -3,12 +3,18 @@
 ## Step 1@showdialog
 micro:biten har et innebygget akselerometer som kan registrere bevegelser og hvilken retning micro:biten peker. 
 
+modellen vi bruker i dag (V2) har også en berørings-sensor på logoen over skjermen.
+
  ```blocks
  input.onGesture(Gesture.Shake, function () {
 	
 })
 input.onGesture(Gesture.LogoUp function () {
 	
+})
+
+input.onLogoEvent(TouchButtonEvent.Touched, function () {
+    basic.showIcon(IconNames.Heart)
 })
 
 ```
