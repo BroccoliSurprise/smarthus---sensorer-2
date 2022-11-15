@@ -1,31 +1,95 @@
+# Sensorer - Bevegelse og berøring
 
-> Åpne denne siden på [https://broccolisurprise.github.io/smarthus---sensorer-2/](https://broccolisurprise.github.io/smarthus---sensorer-2/)
+## Step 1@showdialog
+micro:biten har et innebygget akselerometer som kan registrere bevegelser og hvilken retning micro:biten peker. 
 
-## Bruk som utvidelse
+ ```blocks
+ input.onGesture(Gesture.Shake, function () {
+	
+})
+input.onGesture(Gesture.LogoUp function () {
+	
+})
 
-Dette kodeområdet kan bli lagt til som en **utvidelse** i MakeCode.
+```
 
-* åpne [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* klikk på **Nytt prosjekt**
-* klikk på **Utvidelser** i menyen under tannhjulet
-* søk etter **https://github.com/broccolisurprise/smarthus---sensorer-2** og importér
+## Step 2@showdialog
+La oss teste at sensoren virker som den skal. Dette programmet endrer bildet på micro:biten når den blir plukket opp, og lagt på bakken.
 
-## Rediger dette prosjektet ![Bygg statusmerke](https://github.com/broccolisurprise/smarthus---sensorer-2/workflows/MakeCode/badge.svg)
+ ```blocks
+input.onGesture(Gesture.LogoUp, function () {
+    basic.showIcon(IconNames.Happy)
+})
+input.onGesture(Gesture.ScreenUp, function () {
+    basic.showIcon(IconNames.Asleep)
+})
 
-For å redigere dette kodeområdet i MakeCode.
+```
+## Step 2
+Bygg og last ned programmet, og last ned til micro:biten. Hva skjer når du beveger på micro:biten?
 
-* åpne [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* klikk på **Importer** og så på **Importér URL**
-* lim inn **https://github.com/broccolisurprise/smarthus---sensorer-2** og klikk på importér
+(Trykk på lyspæren til høyre for å se bilde av koden.)
 
-## Forhåndsvisning av blokker
+ ```blocks
+input.onGesture(Gesture.ScreenUp, function () {
+    basic.showIcon(IconNames.Asleep)
+})
+input.onGesture(Gesture.LogoUp, function () {
+    basic.showIcon(IconNames.Happy)
+})
 
-Dette bildet viser blokk-koden fra den siste oppdateringen i hovedgrenen.
-Dette bildet kan ta noen minutter å oppdatere.
 
-![En opptegnet visning av blokkene](https://github.com/broccolisurprise/smarthus---sensorer-2/raw/master/.github/makecode/blocks.png)
+```
 
-#### Metadata (brukes for søk, visualisering)
+## Step bro@showdialog
+Alle verdiene micro:biten måler med sensorene, finnes som rosa blokker. Disse kan kombineres med andre blokker i programmet.
 
-* for PXT/microbit
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+```blocks
+input.onButtonPressed(Button.A, function () {
+    basic.showNumber(Math.sqrt(input.acceleration(Dimension.Strength)))
+})
+basic.forever(function () {
+    led.plotBarGraph(
+    input.acceleration(Dimension.X),
+    1000
+    )
+})
+```
+
+## Step ping 
+Endre programmet slik at micro:biten lyser om den merker at den rister. 
+
+"Hvis akselerasjon er større enn 100, så gjør..."
+
+(Trykk på lyspæren for å se fasiten.)
+
+```blocks
+basic.forever(function () {
+    if (input.acceleration(Dimension.Z) > 100) {
+        basic.showLeds(`
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            `)
+        basic.pause(1000)
+    } else {
+        basic.clearScreen()
+    }
+})
+```
+
+
+
+## Step 2i3
+
+Godt jobbet! Nå har dere kanskje begynt å få ideer til hvordan smarthuset deres kan reagere på bevegelser.
+
+Trykk "Slutt/Finish" for å avslutte veiledningen.
+
+
+```template
+input.onGesture(Gesture.LogoUp, function () {})
+```
+
