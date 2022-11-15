@@ -14,7 +14,7 @@ input.onGesture(Gesture.LogoUp function () {
 ```
 
 ## Step 2@showdialog
-La oss teste at sensoren virker som den skal. Dette programmet endrer bildet på micro:biten når den blir plukket opp, og lagt på bakken.
+La oss teste at sensoren virker som den skal. Dette programmet endrer bildet på micro:biten når den blir plukket opp eller lagt på bakken.
 
  ```blocks
 input.onGesture(Gesture.LogoUp, function () {
@@ -59,7 +59,7 @@ basic.forever(function () {
 ## Step ping 
 Endre programmet slik at micro:biten lyser om den merker at den rister. 
 
-"Hvis akselerasjon er større enn 100, så gjør..."
+"Hvis akselerasjon er større enn 100, så gjør..." (Test ulike verdier for følsomhet og velg den du liker best)
 
 (Trykk på lyspæren for å se fasiten.)
 
