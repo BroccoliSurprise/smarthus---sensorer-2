@@ -20,7 +20,7 @@ input.onLogoEvent(TouchButtonEvent.Touched, function () {
 ```
 
 ## Step 2@showdialog
-La oss teste at sensoren virker som den skal. Dette programmet endrer bildet på micro:biten når den blir plukket opp eller lagt på bakken.
+La oss teste at sensoren virker som den skal. Dette programmet endrer bildet på micro:biten når den blir plukket opp eller lagt på bordet.
 
  ```blocks
 input.onGesture(Gesture.LogoUp, function () {
